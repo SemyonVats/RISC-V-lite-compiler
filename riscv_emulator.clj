@@ -2,7 +2,7 @@
   (:require [clojure.string :as str]
             [clojure.java.io :as io]))
 
-;; ===================== Константы и утилиты =====================
+;; ===================== Defines =====================
 (def opcodes
   {:OPC_3   0b0000011
    :OPC_15  0b0001111
@@ -59,7 +59,7 @@
 (defn trim [s]
   (str/trim s))
 
-;; ===================== Парсер инструкций =====================
+;; ===================== Parser =====================
 (defn make-r-type [command args]
   (let [rd (get-register (first args))
         rs1 (get-register (second args))
@@ -210,7 +210,7 @@
                   (make-instruction command args))))
          (vec))))
 
-;; ===================== Эмулятор CPU =====================
+;; ===================== CPU =====================
 (defn execute [state inst]
   (let [pc (:pc state)
         regs (:regs state)
@@ -331,7 +331,7 @@
         state
         (recur (execute state (nth instructions idx))))))
 
-;; ===================== Главная функция =====================
+;; ===================== Main =====================
 (defn -main [& args]
   (let [asm-file (second (drop-while #(not= "--asm" %) args))
         instructions (parse-file asm-file)
