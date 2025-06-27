@@ -321,7 +321,6 @@
             (assoc :pc (bit-and target 0xFFFFFFFE))
             (assoc-in [:regs rd] (if (zero? rd) (get regs rd) (+ pc 4)))))
       
-      ;; Default: increment PC
       (assoc state :pc (+ pc 4)))))
 
 (defn run-cpu [instructions]
@@ -341,4 +340,4 @@
     (doseq [[i val] (map-indexed vector (:regs result-state))]
       (println (str "x" i ":\t" val)))))
 
-;; Пример вызова: (lein run --asm program.asm)
+
