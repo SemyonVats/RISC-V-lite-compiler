@@ -13,5 +13,6 @@
    ./a --asm code.asm 
  Или в Clion добавить новую конфигурацию для запуска( с аргументами --asm code.asm)
 
- 
 
+# Таблица успехов
+https://docs.google.com/spreadsheets/d/1QGEjNTfxy-IbdlTy0SUjPtU8GSL5_zuCrA6O3SjJtKI/edit?gid=0#gid=0
